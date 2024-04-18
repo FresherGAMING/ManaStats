@@ -3,3 +3,10 @@ main: FresherGAMING\Mana\Mana
 api: 5.0.0
 version: 1.0.0
 author: FresherGAMING
+permissions:
+  mana.cmd:
+    default: true
+  mana.cmd.others:
+    default: op
+  managemana.cmd:
+    default: op

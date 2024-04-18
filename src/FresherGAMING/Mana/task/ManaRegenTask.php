@@ -13,11 +13,11 @@ class ManaRegenTask extends Task {
 
     public function onRun() : void {
         foreach($this->main->getServer()->getOnlinePlayers() as $players){
-            if($this->main->getMaxMana($players) !== false && $this->main->getMana($players) !== false){
+            if($this->main->getMaxMana($players) !== null && $this->main->getMana($players) !== null){
                 if($this->main->getMana($players) < $this->main->getMaxMana($players)){
                     if(!$this->main->isManaStopRegen($players)){
                         if(!$this->main->isRegenCooldown($players)){
-                            $this->main->addMana($players, $this->main->getConfig()->get("mana-regen"));
+                            $this->main->addMana($players, $this->main->getManaRegen($players));
                         }
                     }
                 }
