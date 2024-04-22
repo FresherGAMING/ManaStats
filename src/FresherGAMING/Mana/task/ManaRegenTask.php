@@ -3,8 +3,6 @@
 namespace FresherGAMING\Mana\task;
 
 use FresherGAMING\Mana\Mana;
-use pocketmine\entity\effect\EffectInstance;
-use pocketmine\entity\effect\VanillaEffects;
 use pocketmine\scheduler\Task;
 
 class ManaRegenTask extends Task {
