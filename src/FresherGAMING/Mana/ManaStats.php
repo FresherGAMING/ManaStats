@@ -18,7 +18,7 @@ use pocketmine\player\Player;
 use poggit\libasynql\DataConnector;
 use poggit\libasynql\libasynql;
 
-class Mana extends PluginBase implements Listener {
+class ManaStats extends PluginBase implements Listener {
 
     private array $mana = [];
     private array $maxmana = [];

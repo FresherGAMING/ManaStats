@@ -2,7 +2,7 @@
 
 namespace FresherGAMING\Mana\commands;
 
-use FresherGAMING\Mana\Mana;
+use FresherGAMING\Mana\ManaStats;
 use jojoe77777\FormAPI\SimpleForm;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
@@ -14,7 +14,7 @@ class ManaCmd extends Command implements PluginOwned {
 
     use PluginOwnedTrait;
 
-    public function __construct(Mana $main){
+    public function __construct(ManaStats $main){
         parent::__construct("mana");
         $this->setDescription("View players mana stats");
         $this->setPermission("mana.cmd");

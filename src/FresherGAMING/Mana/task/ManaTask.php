@@ -2,14 +2,14 @@
 
 namespace FresherGAMING\Mana\task;
 
-use FresherGAMING\Mana\Mana;
+use FresherGAMING\Mana\ManaStats;
 use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\effect\VanillaEffects;
 use pocketmine\scheduler\Task;
 
 class ManaTask extends Task {
 
-    public function __construct(private Mana $main){}
+    public function __construct(private ManaStats $main){}
 
     public function onRun() : void {
         foreach($this->main->getServer()->getOnlinePlayers() as $players){
