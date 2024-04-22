@@ -6,7 +6,6 @@ use FresherGAMING\Mana\Mana;
 use jojoe77777\FormAPI\SimpleForm;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\console\ConsoleCommandSender;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\plugin\PluginOwnedTrait;
