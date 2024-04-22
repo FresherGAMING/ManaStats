@@ -3,7 +3,6 @@
 namespace FresherGAMING\Mana\commands;
 
 use FresherGAMING\Mana\Mana;
-use jojoe77777\FormAPI\SimpleForm;
 use jojoe77777\FormAPI\CustomForm;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
