@@ -1,5 +1,6 @@
 -- #! sqlite
 
+
 -- #{ mana
 -- #  { setup
 CREATE TABLE IF NOT EXISTS playerdata(
