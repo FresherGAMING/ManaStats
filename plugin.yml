@@ -10,3 +10,7 @@ permissions:
     default: op
   managemana.cmd:
     default: op
+  managemanaregen.cmd:
+    default: op
+  managemaxmana.cmd:
+    default: op
