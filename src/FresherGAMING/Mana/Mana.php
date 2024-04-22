@@ -8,18 +8,13 @@ use FresherGAMING\Mana\commands\ManageManaRegenCmd;
 use FresherGAMING\Mana\commands\ManageMaxManaCmd;
 use FresherGAMING\Mana\task\ManaRegenTask;
 use FresherGAMING\Mana\task\ManaTask;
-use pocketmine\entity\Attribute;
-use pocketmine\entity\effect\EffectInstance;
-use pocketmine\entity\effect\VanillaEffects;
 use pocketmine\event\player\PlayerJumpEvent;
 use pocketmine\event\player\PlayerMoveEvent;
-use pocketmine\event\player\PlayerToggleSprintEvent;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\Listener;
 use pocketmine\player\Player;
-use pocketmine\utils\Config;
 use poggit\libasynql\DataConnector;
 use poggit\libasynql\libasynql;
 
