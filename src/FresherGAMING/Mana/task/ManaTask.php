@@ -3,7 +3,6 @@
 namespace FresherGAMING\Mana\task;
 
 use FresherGAMING\Mana\Mana;
-use pocketmine\entity\Attribute;
 use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\effect\VanillaEffects;
 use pocketmine\scheduler\Task;
