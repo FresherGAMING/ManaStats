@@ -3,6 +3,9 @@
 namespace FresherGAMING\Mana;
 
 use FresherGAMING\Mana\commands\ManaCmd;
+use FresherGAMING\Mana\commands\ManageManaCmd;
+use FresherGAMING\Mana\commands\ManageManaRegenCmd;
+use FresherGAMING\Mana\commands\ManageMaxManaCmd;
 use FresherGAMING\Mana\task\ManaRegenTask;
 use FresherGAMING\Mana\task\ManaTask;
 use pocketmine\entity\Attribute;
@@ -36,11 +39,14 @@ class Mana extends PluginBase implements Listener {
         $this->getScheduler()->scheduleRepeatingTask(new ManaRegenTask($this), 20);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->db = libasynql::create($this, $this->getConfig()->get("database"), [
-            "sqlite" => "sqlite.sql",
-            "mysql"  => "mysql.sql"
+            "sqlite" => "mana.sql",
+            "mysql"  => "mana.sql"
         ]);
         $this->db->executeGeneric("mana.setup");
         $this->getServer()->getCommandMap()->register("Mana", new ManaCmd($this));
+        $this->getServer()->getCommandMap()->register("Mana", new ManageManaCmd($this));
+        $this->getServer()->getCommandMap()->register("Mana", new ManageManaRegenCmd($this));
+        $this->getServer()->getCommandMap()->register("Mana", new ManageMaxManaCmd($this));
     }
 
     public function onLogin(PlayerLoginEvent $event){
@@ -60,14 +66,20 @@ class Mana extends PluginBase implements Listener {
         if($from->getX() === $to->getX() && $from->getY() === $to->getY() && $from->getZ() === $to->getZ()){
             return;
         }
-        $this->manastopregen[$player->getName()] = time() + 2;
+        $this->manastopregen[$player->getName()] = time() + 1.5;
         if($this->getMana($player) < 1){
             return;
         }
         if($player->isSprinting()){
             if(time() > $this->manareduce[$player->getName()]){
+                $manareduce = $this->getConfig()->get("sprint-mana");
+                $mana = $this->getMana($player);
                 $this->manareduce[$player->getName()] = time() + 1;
-                $this->reduceMana($player, $this->getConfig()->get("sprint-mana"));
+                if($mana - $manareduce < 0){
+                    $this->reduceMana($player, $mana);
+                    return;
+                }
+                $this->reduceMana($player, $manareduce);
             }
         }
     }
@@ -78,7 +90,13 @@ class Mana extends PluginBase implements Listener {
         if($this->getMana($player) < 1){
             return;
         }
-        $this->reduceMana($player, $this->getConfig()->get("jump-mana"));
+        $manareduce = $this->getConfig()->get("jump-mana");
+        $mana = $this->getMana($player);
+        if($mana - $manareduce < 0){
+            $this->reduceMana($player, $mana);
+            return;
+        }
+        $this->reduceMana($player, $manareduce);
     }
 
     private function setData(Player $player){
@@ -121,7 +139,7 @@ class Mana extends PluginBase implements Listener {
         }
     }
 
-    public function setMana(string|Player $player, int $mana){
+    public function setMana(string|Player $player, float $mana){
         if($player instanceof Player){
             $this->mana[$player->getName()] = $mana;
         } else {
@@ -129,11 +147,11 @@ class Mana extends PluginBase implements Listener {
         }
     }
 
-    public function addMana(string|Player $player, int $mana){
+    public function addMana(string|Player $player, float $mana){
         $this->setMana($player, $this->getMana($player) + $mana);
     }
 
-    public function reduceMana(string|Player $player, int $mana){
+    public function reduceMana(string|Player $player, float $mana){
         $this->setMana($player, $this->getMana($player) - $mana);
     }
 
@@ -149,7 +167,7 @@ class Mana extends PluginBase implements Listener {
         }
     }
 
-    public function setMaxMana(string|Player $player, int $maxmana){
+    public function setMaxMana(string|Player $player, float $maxmana){
         if($player instanceof Player){
             $this->db->executeChange("mana.setmaxmana", ["playerid" => $player->getName(), "maxmana" => $maxmana]);
             $this->maxmana[$player->getName()] = $maxmana;
@@ -159,11 +177,11 @@ class Mana extends PluginBase implements Listener {
         }
     }
 
-    public function addMaxMana(string|Player $player, int $mana){
+    public function addMaxMana(string|Player $player, float $mana){
         $this->setMaxMana($player, $this->getMaxMana($player) + $mana);
     }
 
-    public function reduceMaxMana(string|Player $player, int $mana){
+    public function reduceMaxMana(string|Player $player, float $mana){
         $this->setMaxMana($player, $this->getMaxMana($player) - $mana);
     }
 
@@ -195,7 +213,7 @@ class Mana extends PluginBase implements Listener {
         }
     }
 
-    public function setManaRegen(string|Player $player, int $manaregen){
+    public function setManaRegen(string|Player $player, float $manaregen){
         if($player instanceof Player){
             $this->db->executeChange("mana.setmanaregen", ["playerid" => $player->getName(), "manaregen" => $manaregen]);
             $this->manaregen[$player->getName()] = $manaregen;
@@ -205,11 +223,11 @@ class Mana extends PluginBase implements Listener {
         }
     }
 
-    public function addManaRegen(string|Player $player, int $manaregen){
+    public function addManaRegen(string|Player $player, float $manaregen){
         $this->setManaRegen($player, $this->getManaRegen($player) + $manaregen);
     }
 
-    public function reduceManaRegen(string|Player $player, int $manaregen){
+    public function reduceManaRegen(string|Player $player, float $manaregen){
         $this->setManaRegen($player, $this->getManaRegen($player) - $manaregen);
     }
 

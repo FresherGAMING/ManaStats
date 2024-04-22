@@ -57,7 +57,7 @@ allow-players-view-others: true
 # When viewing other offline players stats
 # You could use \n to line break
 mana-offline-form-title: "§bPlayer Mana Stats"
-mana-offline-form-content: "§aName: §b{player_name}\n§aMana: §c(Player is Offline)\n§aMax Mana: §b{player_max_mana}\n§aMana Regen: §b{player_mana_regen}/s"
+mana-offline-form-content: "§aName: §b{player_name}\n§aMana: §cOffline\n§aMax Mana: §b{player_max_mana}\n§aMana Regen: §b{player_mana_regen}/s"
 
 # Mana Stats Display Settings
 # This is Where you can see your current mana
