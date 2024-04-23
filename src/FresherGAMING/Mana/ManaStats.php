@@ -28,7 +28,10 @@ class ManaStats extends PluginBase implements Listener {
     private array $manaregencd = [];
     private DataConnector $db;
 
+    private static $instance = null;
+
     public function onEnable() : void{
+        self::$instance = $this;
         $this->saveResource("config.yml");
         $this->getScheduler()->scheduleRepeatingTask(new ManaTask($this), 5);
         $this->getScheduler()->scheduleRepeatingTask(new ManaRegenTask($this), 20);
@@ -42,6 +45,10 @@ class ManaStats extends PluginBase implements Listener {
         $this->getServer()->getCommandMap()->register("Mana", new ManageManaCmd($this));
         $this->getServer()->getCommandMap()->register("Mana", new ManageManaRegenCmd($this));
         $this->getServer()->getCommandMap()->register("Mana", new ManageMaxManaCmd($this));
+    }
+
+    public static function getInstance(){
+        return self::$instance;
     }
 
     public function onLogin(PlayerLoginEvent $event){
