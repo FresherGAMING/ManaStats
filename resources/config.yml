@@ -63,3 +63,8 @@ mana-offline-form-content: "§aName: §b{player_name}\n§aMana: §cOffline\n§aM
 # This is Where you can see your current mana
 # You can set it as "", if you want to disable this
 mana-stats-display: "§bMana: {player_mana}/{player_max_mana}"
+
+# Mana Bypass Settings
+# Set this to true, if you want the op to bypass the mana system
+# Or else you can give the player "mana.bypass" perm, if you want the player to bypass the mana system
+op-mana-bypass: false

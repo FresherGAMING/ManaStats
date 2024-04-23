@@ -14,3 +14,5 @@ permissions:
     default: op
   managemaxmana.cmd:
     default: op
+  mana.bypass:
+    default: false

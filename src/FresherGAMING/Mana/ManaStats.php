@@ -58,6 +58,14 @@ class ManaStats extends PluginBase implements Listener {
         $player = $event->getPlayer();
         $from = $event->getFrom();
         $to = $event->getTo();
+        if($player->hasPermission("mana.bypass")){
+            return;
+        }
+        if($this->getConfig()->get("op-mana-bypass")){
+            if($this->getServer()->isOp($player->getName())){
+                return;
+            }
+        }
         if($from->getX() === $to->getX() && $from->getY() === $to->getY() && $from->getZ() === $to->getZ()){
             return;
         }
@@ -81,6 +89,14 @@ class ManaStats extends PluginBase implements Listener {
 
     public function onJump(PlayerJumpEvent $event){
         $player = $event->getPlayer();
+        if($player->hasPermission("mana.bypass")){
+            return;
+        }
+        if($this->getConfig()->get("op-mana-bypass")){
+            if($this->getServer()->isOp($player->getName())){
+                return;
+            }
+        }
         $this->manastopregen[$player->getName()] = time() + 1.5;
         if($this->getMana($player) < 1){
             return;
