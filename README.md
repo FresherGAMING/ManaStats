@@ -26,3 +26,92 @@ If you want the mana to regen, you have to stay at a place and didn't moving an 
 | /managemaxmana     | managemaxmana.cnmd                           | OP      | Manage Player's Max Mana   |
 |         -          | mana.bypass                                  | False   | Bypass Mana System         |
 
+# For Developers
+Importing The ManaStats File
+```php
+use FresherGAMING\Mana\ManaStats;
+```
+
+### Player's Mana Stats
+If you want to get the player's mana
+```php
+$player = //Could be string name or player type
+ManaStats::getInstance()->getMana($player);
+```
+
+If you want to add the player's mana
+```php
+$player = //Could be string name or player type
+$amount = //Could be float type
+ManaStats::getInstance()->addMana($player, $amount);
+```
+
+If you want to reduce the player's mana
+```php
+$player = //Could be string name or player type
+$amount = //Could be float type
+ManaStats::getInstance()->reduceMana($player, $amount);
+```
+
+If you want to set the player's mana
+```php
+$player = //Could be string name or player type
+$amount = //Could be float type
+ManaStats::getInstance()->setMana($player, $amount);
+```
+
+### Player's Mana Regen Stats
+If you want to get the player's mana regen
+```php
+$player = //Could be string name or player type
+ManaStats::getInstance()->getManaRegen($player);
+```
+
+If you want to add the player's mana regen
+```php
+$player = //Could be string name or player type
+$amount = //Could be float type
+ManaStats::getInstance()->addManaRegen($player, $amount);
+```
+
+If you want to reduce the player's mana regen
+```php
+$player = //Could be string name or player type
+$amount = //Could be float type
+ManaStats::getInstance()->reduceManaRegen($player, $amount);
+```
+
+If you want to set the player's mana regen
+```php
+$player = //Could be string name or player type
+$amount = //Could be float type
+ManaStats::getInstance()->setManaRegen($player, $amount);
+```
+
+### Player's Max Mana Stats
+If you want to get the player's max mana
+```php
+$player = //Could be string name or player type
+ManaStats::getInstance()->getMaxMana($player);
+```
+
+If you want to add the player's max mana
+```php
+$player = //Could be string name or player type
+$amount = //Could be float type
+ManaStats::getInstance()->addMaxMana($player, $amount);
+```
+
+If you want to reduce the player's max mana
+```php
+$player = //Could be string name or player type
+$amount = //Could be float type
+ManaStats::getInstance()->reduceMaxMana($player, $amount);
+```
+
+If you want to set the player's max mana
+```php
+$player = //Could be string name or player type
+$amount = //Could be float type
+ManaStats::getInstance()->setMaxMana($player, $amount);
+```
