@@ -1,9 +1,11 @@
 # About This Plugin
-Mana is a Pocketmine MP Plugin that will add like stamina features on your server.
+Mana is a Pocketmine MP Plugin that will add mana features on your server.
 
-When you're sprint or jump, the mana will decrease.
+Every time you're sprint or jump, the mana will decrease.
 
-If you want the mana to regen, you have to stay at a place and didn't moving an inch.
+When the mana reach 0, you will get blindness effect 
+
+If you want mana to be regenerated, You have to stay at a place and didn't moving an inch.
 
 # Commands
 | Command                          | Description                  | Usage                                                                  |
