@@ -17,7 +17,7 @@ class ManageMaxManaCmd extends Command implements PluginOwned {
     public function __construct(ManaStats $main){
         parent::__construct("managemaxmana");
         $this->setDescription("Manage player's max mana");
-        $this->setPermission("managemaxmana.cmd");
+        $this->setPermission("manastats.managemaxmana.cmd");
         $this->setUsage("§cUsage:\n /managemaxmana [string:player]\n /managemaxmana [string:player] [add|reduce|set] [float:amount]");
         $this->owningPlugin = $main;
     }

@@ -17,7 +17,7 @@ class ManageManaCmd extends Command implements PluginOwned {
     public function __construct(ManaStats $main){
         parent::__construct("managemana");
         $this->setDescription("Manage player's mana");
-        $this->setPermission("managemana.cmd");
+        $this->setPermission("manastats.managemana.cmd");
         $this->setUsage("§cUsage:\n /managemana [string:player]\n /managemana [string:player] [add|reduce|set] [float:amount]");
         $this->owningPlugin = $main;
     }

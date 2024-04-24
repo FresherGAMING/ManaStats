@@ -17,7 +17,7 @@ class ManageManaRegenCmd extends Command implements PluginOwned {
     public function __construct(ManaStats $main){
         parent::__construct("managemanaregen");
         $this->setDescription("Manage player's mana regen");
-        $this->setPermission("managemanaregen.cmd");
+        $this->setPermission("manastats.managemanaregen.cmd");
         $this->setUsage("§cUsage:\n /managemanaregen [string:player]\n /managemanaregen [string:player] [add|reduce|set] [float:amount]");
         $this->owningPlugin = $main;
     }
@@ -118,7 +118,7 @@ class ManageManaRegenCmd extends Command implements PluginOwned {
         $form->setTitle("Manage Player's Mana Regen");
         $content = [
             "§aName: §b{player_name}\n",
-            "§aMana Regen: §b{player_mana}"
+            "§aMana Regen: §b{player_mana}/s"
         ];
         $placeholder = ["{player_name}", "{player_mana}"];
         $realstats = [$player, $manaregen];
