@@ -41,10 +41,10 @@ class ManaStats extends PluginBase implements Listener {
             "mysql"  => "mana.sql"
         ]);
         $this->db->executeGeneric("mana.setup");
-        $this->getServer()->getCommandMap()->register("Mana", new ManaCmd($this));
-        $this->getServer()->getCommandMap()->register("Mana", new ManageManaCmd($this));
-        $this->getServer()->getCommandMap()->register("Mana", new ManageManaRegenCmd($this));
-        $this->getServer()->getCommandMap()->register("Mana", new ManageMaxManaCmd($this));
+        $this->getServer()->getCommandMap()->register("ManaStats", new ManaCmd($this));
+        $this->getServer()->getCommandMap()->register("ManaStats", new ManageManaCmd($this));
+        $this->getServer()->getCommandMap()->register("ManaStats", new ManageManaRegenCmd($this));
+        $this->getServer()->getCommandMap()->register("ManaStats", new ManageMaxManaCmd($this));
     }
 
     public static function getInstance(){
@@ -65,7 +65,7 @@ class ManaStats extends PluginBase implements Listener {
         $player = $event->getPlayer();
         $from = $event->getFrom();
         $to = $event->getTo();
-        if($player->hasPermission("mana.bypass")){
+        if($player->hasPermission("manastats.mana.bypass")){
             return;
         }
         if($this->getConfig()->get("op-mana-bypass")){
@@ -96,7 +96,7 @@ class ManaStats extends PluginBase implements Listener {
 
     public function onJump(PlayerJumpEvent $event){
         $player = $event->getPlayer();
-        if($player->hasPermission("mana.bypass")){
+        if($player->hasPermission("manastats.mana.bypass")){
             return;
         }
         if($this->getConfig()->get("op-mana-bypass")){
