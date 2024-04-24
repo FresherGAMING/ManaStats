@@ -25,7 +25,7 @@ If you want mana to be regenerated, You have to stay at a place and didn't movin
 | /mana              | mana.cmd.others                              | OP      | View Other's Stats         |
 | /managemana        | managemana.cmd                               | OP      | Manage Player's Mana       |
 | /managemanaregen   | managemanaregen.cmd                          | OP      | Manage Player's Mana Regen |
-| /managemaxmana     | managemaxmana.cnmd                           | OP      | Manage Player's Max Mana   |
+| /managemaxmana     | managemaxmana.cmd                            | OP      | Manage Player's Max Mana   |
 |         -          | mana.bypass                                  | False   | Bypass Mana System         |
 
 # For Developers
