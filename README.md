@@ -62,7 +62,7 @@ $amount = //Could be float type
 ManaStats::getInstance()->setMana($player, $amount);
 ```
 
-### Player's Mana Regen Stats, Only for Online Players
+### Player's Mana Regen Stats
 If you want to get the player's mana regen, Only For Online Players
 ```php
 $player = //Could be string name or player type
@@ -90,7 +90,7 @@ $amount = //Could be float type
 ManaStats::getInstance()->setManaRegen($player, $amount);
 ```
 
-### Player's Max Mana Stats, Only for Online Players
+### Player's Max Mana Stats
 If you want to get the player's max mana, Only For Online Players
 ```php
 $player = //Could be string name or player type
