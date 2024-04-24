@@ -4,15 +4,15 @@ api: 5.0.0
 version: 1.0.0
 author: FresherGAMING
 permissions:
-  mana.cmd:
+  manastats.mana.cmd:
     default: true
-  mana.cmd.others:
+  manastats.mana.cmd.others:
     default: op
-  managemana.cmd:
+  manastats.managemana.cmd:
     default: op
-  managemanaregen.cmd:
+  manastats.managemanaregen.cmd:
     default: op
-  managemaxmana.cmd:
+  manastats.managemaxmana.cmd:
     default: op
-  mana.bypass:
+  manastats.mana.bypass:
     default: false
