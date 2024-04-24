@@ -14,9 +14,9 @@ If you want mana to be regenerated, You have to stay at a place and didn't movin
 | /managemana [FORM TYPE]          | Manage player's mana stats   | /managemana [string:player]                                            |
 | /managemana [MANUAL TYPE]        | Manage player's mana stats   | /managemana [string:player] [add/reduce/set] [float:amount]            |
 | /managemanaregen [FORM TYPE]     | Manage player's mana regen   | /managemanaregen [string:player]                                       |
-| /managemanaregen [MANUAL TYPE]   | Manage player's mana regen   | /managemanaregen [string:player] [add|reduce|set] [float:amount]       |
+| /managemanaregen [MANUAL TYPE]   | Manage player's mana regen   | /managemanaregen [string:player] [add/reduce/set] [float:amount]       |
 | /managemaxmana [FORM TYPE]       | Manage player's max mana     | /managemaxmana [string:player]                                         |
-| /managemaxmana [MANUAL TYPE]     | Manage player's max mana     | /managemaxmana [string:player] [add|reduce|set] [float:amount]         |
+| /managemaxmana [MANUAL TYPE]     | Manage player's max mana     | /managemaxmana [string:player] [add/reduce/set] [float:amount]         |
 
 # Permissions
 | Command            | Permissions                                  | Default | Description                |
