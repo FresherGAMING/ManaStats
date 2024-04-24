@@ -29,6 +29,7 @@ If you want mana to be regenerated, You have to stay at a place and didn't movin
 |         -          | mana.bypass                                  | False   | Bypass Mana System         |
 
 # For Developers
+Note: The Mana won't be saved on Database, so every time player join the server, their mana will be reset from 0
 Importing The ManaStats File
 ```php
 use FresherGAMING\Mana\ManaStats;
