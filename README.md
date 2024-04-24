@@ -21,12 +21,12 @@ If you want mana to be regenerated, You have to stay at a place and didn't movin
 # Permissions
 | Command            | Permissions                                  | Default | Description                |
 | ------------------ | -------------------------------------------- | ------- | -------------------------- |
-| /mana              | mana.cmd                                     | True    | View Your Own Stats        |
-| /mana              | mana.cmd.others                              | OP      | View Other's Stats         |
-| /managemana        | managemana.cmd                               | OP      | Manage Player's Mana       |
-| /managemanaregen   | managemanaregen.cmd                          | OP      | Manage Player's Mana Regen |
-| /managemaxmana     | managemaxmana.cmd                            | OP      | Manage Player's Max Mana   |
-|         -          | mana.bypass                                  | False   | Bypass Mana System         |
+| /mana              | manastats.mana.cmd                                     | True    | View Your Own Stats        |
+| /mana              | manastats.mana.cmd.others                              | OP      | View Other's Stats         |
+| /managemana        | manastats.managemana.cmd                               | OP      | Manage Player's Mana       |
+| /managemanaregen   | manastats.managemanaregen.cmd                          | OP      | Manage Player's Mana Regen |
+| /managemaxmana     | manastats.managemaxmana.cmd                            | OP      | Manage Player's Max Mana   |
+|         -          | manastats.mana.bypass                                  | False   | Bypass Mana System         |
 
 # For Developers
 Note: The Mana won't be saved on Database, so every time player join the server, their mana will be reset from 0
